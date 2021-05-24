@@ -1,0 +1,37 @@
+scalar Date
+
+type PublicPerson {
+    slug: String
+    forename: String
+    surname: String
+    email: String
+    secondaryEmail: String
+    startDate: String
+}
+
+type PrivatePerson {
+    slug: String
+    forename: String
+    surname: String
+    email: String
+    secondaryEmail: String
+    pictureUrl: String
+    startDate: String
+}
+
+input CreatePerson {
+    forename: String
+    surname: String
+    email: String!
+    secondaryEmail: String
+}
+
+type Query {
+    getPublicPerson: PublicPerson!
+    getPrivatePerson: PrivatePerson!
+}
+
+type Mutation {
+    createPublicPerson(createPerson: CreatePerson!, picture: String!): PublicPerson!
+    createPrivatePerson(createPerson: CreatePerson!, picture: String!): PrivatePerson!
+}
